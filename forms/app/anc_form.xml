@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>anc</h:title>
+    <model>
+      <instance>
+        <anc_form id="anc_form" prefix="J1!anc_form!" delimiter="#" version="1">
+          <pregnant/>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </anc_form>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/anc_form/pregnant" type="select1" required="true()"/>
+      <bind nodeset="/anc_form/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <select1 ref="/anc_form/pregnant">
+      <label>Are you sure?</label>
+      <item>
+        <label>Yes</label>
+        <value>yes</value>
+      </item>
+      <item>
+        <label>No</label>
+        <value>no</value>
+      </item>
+    </select1>
+  </h:body>
+</h:html>
